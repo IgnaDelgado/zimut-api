@@ -12,17 +12,10 @@ load_dotenv()
 
 app = FastAPI(title="ZIMUT Contact API", version="1.0.0")
 
-# Dominios que van a poder llamar al backend
-ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "https://zimut.com.ar",
-    "https://www.zimut.com.ar",
-    "https://zimut-landing-page.vercel.app/",  # cambialo por el real de Vercel
-]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
